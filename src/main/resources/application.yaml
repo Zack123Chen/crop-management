@@ -1,3 +1,14 @@
 spring:
   application:
     name: crop-management
+  datasource:
+    # 这里的 crop_db 是我们要建的仓库名
+    url: jdbc:mysql://localhost:3306/crop_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 这里的配置是为了让 MyBatis 知道去哪里找你的 SQL 代码
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.crop.entity # 这里填你实体类所在的包名
