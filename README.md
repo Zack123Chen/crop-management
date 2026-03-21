@@ -26,7 +26,7 @@
 ### 1. 添加农作物 (POST /crop)
 * **功能**: 接收 JSON 数据并持久化到数据库，ID 自动生成。
 * **测试截图**:
-  ![POST测试](https://github.com/user-attachments/assets/94634dfb-d922-4148-b1f3-374c71e2c6f1)
+  ![POST测试](https://github.com/user-attachments/assets/1070c35f-20b1-4ce9-988b-3d096eceb9e0)
 * ![](https://github.com/user-attachments/assets/2f7382d0-e80c-409b-b384-8f411dc4b1da)
 ### 2. 数据库持久化验证
 * **证明**: 数据已成功写入本地 MySQL 数据库 `crop` 表中。
@@ -37,7 +37,7 @@
 * **功能**: 根据主键 ID 精准查询单条记录，通过list能查询所有作物的记录。
 * **测试截图**:
   ![GET详情测试](https://github.com/user-attachments/assets/236c3907-f263-4392-ba6c-38fc4eaf0a97)
-
+  ![](https://github.com/user-attachments/assets/518ba42c-395b-44de-a936-1d970660a47e)
 ### 4. 更新与删除 (PUT & DELETE)
 * **功能**: 实现信息的动态修改与安全移除。
 * **测试截图**:
