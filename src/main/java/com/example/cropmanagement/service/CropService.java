@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
-@Service // 标记为 Service 层
+@Service
 public class CropService {
+    @Autowired
+    private CropMapper cropMapper; // 呼叫仓库管理员
 
-    @Autowired // 自动配发一个采购员给厨师
-    private CropMapper cropMapper;
-
-    public List<Crop> getAllCrops() {
-        return cropMapper.findAll();
-    }
+    public void addCrop(Crop crop) { cropMapper.insert(crop); }
+    public Crop getById(Long id) { return cropMapper.findById(id); }
+    public List<Crop> getAll() { return cropMapper.findAll(); }
+    public void update(Crop crop) { cropMapper.update(crop); }
+    public void delete(Long id) { cropMapper.deleteById(id); }
 }

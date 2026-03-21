@@ -1,13 +1,24 @@
 package com.example.cropmanagement.mapper;
 
 import com.example.cropmanagement.entity.Crop;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import java.util.List;
 
-@Mapper // 这是一个关键的“身份卡”，没有它 MyBatis 就不干活
+@Mapper
 public interface CropMapper {
+    @Insert("INSERT INTO crop(name, category, growth_cycle) VALUES(#{name}, #{category}, #{growth_cycle})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int insert(Crop crop);
 
-    @Select("SELECT * FROM crop") // 告诉采购员：去 crop 表里把所有东西搬出来
+    @Select("SELECT * FROM crop WHERE id = #{id}")
+    Crop findById(Long id);
+
+    @Select("SELECT * FROM crop")
     List<Crop> findAll();
+
+    @Update("UPDATE crop SET name=#{name}, category=#{category}, growth_cycle=#{growth_cycle} WHERE id=#{id}")
+    int update(Crop crop);
+
+    @Delete("DELETE FROM crop WHERE id = #{id}")
+    int deleteById(Long id);
 }

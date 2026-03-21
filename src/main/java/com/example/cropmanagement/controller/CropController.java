@@ -1,26 +1,43 @@
 package com.example.cropmanagement.controller;
 
 import com.example.cropmanagement.entity.Crop;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
+import com.example.cropmanagement.service.CropService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/crop") // 统一给接口加个前缀，就像餐厅的“农作物专区”
+@RequestMapping("/crop") // 统一前缀
 public class CropController {
+    @Autowired
+    private CropService cropService;
 
-    @GetMapping("/list") // 对应考核要求的 GET /crop/list
-    public List<Crop> getAllCrops() {
-        // 先造两个假数据试试水
-        List<Crop> list = new ArrayList<>();
-        Crop c = new Crop();
-        c.setId(1L);
-        c.setName("超级大水稻");
-        c.setCategory("粮食");
-        list.add(c);
-        return list;
+    @PostMapping // 添加
+    public String add(@RequestBody Crop crop) {
+        cropService.addCrop(crop);
+        return "添加成功！ID是：" + crop.getId();
+    }
+
+    @GetMapping("/{id}") // 查询单个
+    public Crop get(@PathVariable Long id) {
+        return cropService.getById(id);
+    }
+
+    @GetMapping("/list") // 查询列表
+    public List<Crop> list() {
+        return cropService.getAll();
+    }
+
+    @PutMapping("/{id}") // 更新
+    public String update(@PathVariable Long id, @RequestBody Crop crop) {
+        crop.setId(id);
+        cropService.update(crop);
+        return "更新成功！";
+    }
+
+    @DeleteMapping("/{id}") // 删除
+    public String delete(@PathVariable Long id) {
+        cropService.delete(id);
+        return "删除成功！";
     }
 }
