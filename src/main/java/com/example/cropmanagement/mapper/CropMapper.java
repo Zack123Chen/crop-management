@@ -8,7 +8,7 @@ import java.util.List;
 public interface CropMapper {
     @Insert("INSERT INTO crop(name, category, growth_cycle) VALUES(#{name}, #{category}, #{growth_cycle})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    int insert(Crop crop);
+    void insert(Crop crop);
 
     @Select("SELECT * FROM crop WHERE id = #{id}")
     Crop findById(Long id);
@@ -17,8 +17,8 @@ public interface CropMapper {
     List<Crop> findAll();
 
     @Update("UPDATE crop SET name=#{name}, category=#{category}, growth_cycle=#{growth_cycle} WHERE id=#{id}")
-    int update(Crop crop);
+    void update(Crop crop);
 
     @Delete("DELETE FROM crop WHERE id = #{id}")
-    int deleteById(Long id);
+    void deleteById(Long id);
 }
