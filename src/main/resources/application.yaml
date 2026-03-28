@@ -1,7 +1,11 @@
 spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
   datasource:
     # 注意：如果你的数据库叫 crop_db，这里不用改。
-    url: jdbc:mysql://localhost:3306/crop_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/crop_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: 12345678 # 请在这里填入你安装 MySQL 时设定的密码
     driver-class-name: com.mysql.cj.jdbc.Driver
