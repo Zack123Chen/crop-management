@@ -59,6 +59,11 @@
   ![删除测试](https://github.com/user-attachments/assets/3aecd1e7-7f56-4fdf-a002-c20ce9c4fe97)
   ![删除结果证明](https://github.com/user-attachments/assets/f86bdaaa-e9f4-4338-8ac9-4de43d701ec0)
 
+### 7. 系统监控演示 (AOP + Logging)
+* **功能**: 系统已集成 AOP 监控切面，全自动记录请求路径、参数、响应结果及执行耗时。如图所示，系统精准捕捉到了 /crop/list 的访问，并展示了标准化响应结果。
+* **测试截图**:
+  ![](https://github.com/user-attachments/assets/e79b6348-aba0-4fc2-8bfc-60f9ce2f1fe5)
+
 ## 🚀 如何运行 (How to Run)
 
 1.  克隆本项目到本地。
